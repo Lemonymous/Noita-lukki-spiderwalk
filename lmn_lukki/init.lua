@@ -1,6 +1,4 @@
 
--- version 1.3
-
 ModLuaFileAppend("data/scripts/perks/perk_list.lua", "mods/lmn_lukki/lmn_lukki/scripts/perk_list.lua")
 ModLuaFileAppend("data/scripts/perks/perk.lua", "mods/lmn_lukki/lmn_lukki/scripts/perk.lua")
 dofile_once( "mods/lmn_lukki/lmn_lukki/scripts/libs/globals.lua" )
@@ -15,8 +13,8 @@ function OnPlayerSpawned(player)
 		
 		
 		-- spawn perk
-		local x, y = EntityGetTransform( player )
-		perk_spawn(x, y, "ATTACK_FOOT")
+		--local x, y = EntityGetTransform( player )
+		--perk_spawn(x, y, "ATTACK_FOOT")
 		
 		
 		-- testing compatibility with some effects

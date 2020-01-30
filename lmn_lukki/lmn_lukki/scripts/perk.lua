@@ -3,7 +3,7 @@ dofile_once("mods/lmn_lukki/lmn_lukki/scripts/libs/globals.lua")
 dofile_once("mods/lmn_lukki/lmn_lukki/scripts/libs/objectify.lua")
 
 local globals = private_globals(lmn.prefix)
-local count = 0
+--local count = 0
 
 local old_perk_pickup = perk_pickup
 function perk_pickup(entity_item, entity_who_picked, ...)
