@@ -1,6 +1,6 @@
 
-dofile_once("mods/lmn_lukki/lmn_lukki/scripts/libs/private_globals.lua")
-dofile_once("mods/lmn_lukki/lmn_lukki/scripts/libs/objectify.lua")
+dofile_once("mods/lmn_lukki/files/scripts/libs/private_globals.lua")
+dofile_once("mods/lmn_lukki/files/scripts/libs/objectify.lua")
 
 lmn = lmn or {}
 lmn.prefix = "lmn_lukki_"
@@ -26,7 +26,7 @@ local list = {
 	}
 }
 
-lmn.globals = {}
+lmn.globals = lmn.globals or {}
 
 -- component values = global values
 function lmn.globals.apply(entity)

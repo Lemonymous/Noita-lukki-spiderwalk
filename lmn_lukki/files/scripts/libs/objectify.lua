@@ -1,6 +1,6 @@
 
 local config = {
-	vector2_path = "mods/lmn_lukki/lmn_lukki/scripts/libs/vector2.lua"
+	vector2_path = "mods/lmn_lukki/files/scripts/libs/vector2.lua"
 }
 
 ------------------------------------------------------------------------------------

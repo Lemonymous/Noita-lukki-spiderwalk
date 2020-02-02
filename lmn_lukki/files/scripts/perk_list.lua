@@ -1,9 +1,9 @@
 
-local path_lukki_update = "mods/lmn_lukki/lmn_lukki/scripts/update.lua"
-dofile_once("mods/lmn_lukki/lmn_lukki/config.lua")
-dofile_once("mods/lmn_lukki/lmn_lukki/scripts/libs/globals.lua")
-dofile_once("mods/lmn_lukki/lmn_lukki/scripts/libs/objectify.lua")
-dofile_once("mods/lmn_lukki/lmn_lukki/scripts/libs/private_globals.lua")
+local path_lukki_update = "mods/lmn_lukki/files/scripts/update.lua"
+dofile_once("mods/lmn_lukki/files/config.lua")
+dofile_once("mods/lmn_lukki/files/scripts/libs/globals.lua")
+dofile_once("mods/lmn_lukki/files/scripts/libs/objectify.lua")
+dofile_once("mods/lmn_lukki/files/scripts/libs/private_globals.lua")
 
 for _, perk in ipairs(perk_list) do
 	if perk.id == "ATTACK_FOOT" then
@@ -17,6 +17,8 @@ for _, perk in ipairs(perk_list) do
 			local globals = private_globals(lmn.prefix)
 			local prefix = lmn.prefix
 			local config = lmn.config
+			
+			lmn.globals.update(entity_who_picked)
 			
 			local perk_count = globals.perk_count or 0
 			globals.perk_count = perk_count + 1

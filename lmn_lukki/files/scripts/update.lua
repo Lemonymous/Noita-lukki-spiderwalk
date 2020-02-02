@@ -4,12 +4,12 @@ lmn = lmn or {}
 local player_entity = GetUpdatedEntityID()
 if not player_entity then return end
 
-dofile_once("mods/lmn_lukki/lmn_lukki/config.lua")
-dofile_once("mods/lmn_lukki/lmn_lukki/scripts/libs/utils.lua")
-dofile_once("mods/lmn_lukki/lmn_lukki/scripts/libs/private_globals.lua")
-dofile_once("mods/lmn_lukki/lmn_lukki/scripts/libs/vector2.lua")
-dofile_once("mods/lmn_lukki/lmn_lukki/scripts/libs/objectify.lua")
-dofile_once("mods/lmn_lukki/lmn_lukki/scripts/libs/globals.lua")
+dofile_once("mods/lmn_lukki/files/config.lua")
+dofile_once("mods/lmn_lukki/files/scripts/libs/utils.lua")
+dofile_once("mods/lmn_lukki/files/scripts/libs/private_globals.lua")
+dofile_once("mods/lmn_lukki/files/scripts/libs/vector2.lua")
+dofile_once("mods/lmn_lukki/files/scripts/libs/objectify.lua")
+dofile_once("mods/lmn_lukki/files/scripts/libs/globals.lua")
 
 local config = lmn.config
 local prefix = lmn.prefix
@@ -19,6 +19,9 @@ local controls = player.ControlsComponent
 local chardata = player.CharacterDataComponent
 local platforming = player.CharacterPlatformingComponent
 local limbs = {attached = 0}
+
+platforming.jump_velocity_y = 0
+platforming.jump_velocity_x = 0
 
 local children = EntityGetAllChildren(player_entity)
 for _, child in ipairs(children) do
