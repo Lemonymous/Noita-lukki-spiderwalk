@@ -52,7 +52,7 @@ for _, perk in ipairs(perk_list) do
 			-- get existing limbs
 			local limbs = {}
 			
-			if #limbs == 0 then
+			if config.enable_leg_attacks and #limbs == 0 then
 				limb_attacker = EntityLoad( "data/entities/misc/perks/attack_foot/limb_attacker.xml", x, y )
 				EntityAddChild(entity_who_picked, limb_attacker)
 			end
