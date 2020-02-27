@@ -3,7 +3,6 @@ dofile_once("mods/lmn_lukki/files/scripts/libs/globals.lua")
 dofile_once("mods/lmn_lukki/files/scripts/libs/objectify.lua")
 
 local globals = private_globals(lmn.prefix)
---local count = 0
 
 local old_perk_pickup = perk_pickup
 function perk_pickup(entity_item, entity_who_picked, ...)
@@ -22,15 +21,11 @@ function perk_pickup(entity_item, entity_who_picked, ...)
 	--[[
 	local x, y = EntityGetTransform(entity_who_picked)
 	
-	if count == 0 then
-		perk_spawn(x, y, "BREATH_UNDERWATER")
-		count = 1
-	elseif count == 1 then
-		perk_spawn(x, y, "SPEED_DIVER")
-		count = 2
-	else
-		perk_spawn(x, y, "MOVEMENT_FASTER")
-	end]]
+	perk_spawn(x - 20,  y, "MOVEMENT_FASTER")
+	perk_spawn(x - 0,   y, "ATTACK_FOOT")
+	perk_spawn(x + 20,  y, "BREATH_UNDERWATER")
+	perk_spawn(x + 40, y, "SPEED_DIVER")
+	--]]
 	
 	return result
 end

@@ -6,10 +6,11 @@
 lmn = lmn or {}
 lmn.config = {
 	spawn_perk_at_new_game = false,
+	enable_leg_attacks = false,
 	velocity_max_multiplier_at_full_grip = 1.50,
 	climb_acceleration = 500,
 	limb_count = 6,
-	limb_length = 55,
+	limb_length = 45,
 	
 	-- not sure if the following option still works
 	ignores_oil_slippyness = false,

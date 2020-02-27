@@ -20,14 +20,18 @@ function OnPlayerSpawned(player)
 		
 		
 		-- testing compatibility with some effects
-		--for i = 1, 10 do
-		--	EntityLoad( "data/entities/items/pickup/potion.xml", 400 + Random(-100, 100), -100 + Random(-10, 10) )
-		--end
+		--[[
+		for i = 1, 10 do
+			EntityLoad( "data/entities/items/pickup/potion.xml", 400 + Random(-100, 100), -100 + Random(-10, 10) )
+		end
+		--]]
 		
 		-- testing compatibility with water
-		--local x, y = EntityGetTransform( player )
-		--x = x + 2200
-		--EntitySetTransform(player, x, y)
-		--perk_spawn(x, y, "ATTACK_FOOT")
+		--[[
+		local x, y = EntityGetTransform( player )
+		x = x + 2200
+		EntitySetTransform(player, x, y)
+		perk_spawn(x, y, "ATTACK_FOOT")
+		--]]
 	end
 end
