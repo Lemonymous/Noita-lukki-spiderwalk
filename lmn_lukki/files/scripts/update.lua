@@ -246,9 +246,9 @@ if swim_changed or grip_changed then
 		platforming.meta.velocity_max_y = globals.velocity_max_y
 	else
 		local perk_count = tonumber(globals.perk_count) or 1
-		-- multiplier: [1.0, velocity_max_multiplier_at_full_grip]
-		local mul = config.velocity_max_multiplier_at_full_grip + config.stack_perk.velocity_max_multiplier_at_full_grip * (perk_count - 1)
-		mul = 1 + math.max(0, (lmn.grip * (mul - 1)))
+		-- multiplier: [1.0, velocity_multiplier_at_full_grip]
+		local mul = config.velocity_multiplier_at_full_grip + config.stack_perk.velocity_multiplier_at_full_grip * (perk_count - 1)
+		mul = math.min(1 + math.max(0, (lmn.grip * (mul - 1))), config.stack_perk.velocity_multiplier_limit)
 		
 		local vmax = globals.fly_velocity_x * mul
 		

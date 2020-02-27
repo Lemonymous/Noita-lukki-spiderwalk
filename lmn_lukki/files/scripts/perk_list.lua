@@ -24,8 +24,8 @@ for _, perk in ipairs(perk_list) do
 			globals.perk_count = perk_count + 1
 			
 			local base = config.limb_count
-			local stack_add = config.stack_perk.limbs_count_add
-			local count_max = config.stack_perk.limbs_count_max
+			local stack_add = config.stack_perk.limb_count_add
+			local count_max = config.stack_perk.limb_count_limit
 			
 			local limb_count = base + perk_count * stack_add
 			limb_count = math.min(limb_count, count_max)
@@ -45,17 +45,12 @@ for _, perk in ipairs(perk_list) do
 			end
 			
 			limb_length = limb_length - math.floor(limb_count / 2)
-			limb_length = math.max(1, limb_length)
+			limb_length = math.max(1, math.min(limb_length, config.stack_perk.limb_length_limit))
 			
 			chardata.climb_over_y = 5
 			
 			-- get existing limbs
 			local limbs = {}
-			
-			if config.enable_leg_attacks and #limbs == 0 then
-				limb_attacker = EntityLoad( "data/entities/misc/perks/attack_foot/limb_attacker.xml", x, y )
-				EntityAddChild(entity_who_picked, limb_attacker)
-			end
 			
 			local children = EntityGetAllChildren(entity_who_picked)
 			for _, child in ipairs(children) do
@@ -105,10 +100,18 @@ for _, perk in ipairs(perk_list) do
 				end
 			end
 			
-			EntityAddComponent(entity_who_picked, "LuaComponent", {
-				script_source_file = path_lukki_update,
-				execute_every_n_frame = "1",
-			})
+			if perk_count == 0 then
+				
+				if config.enable_leg_attacks then
+					limb_attacker = EntityLoad( "data/entities/misc/perks/attack_foot/limb_attacker.xml", x, y )
+					EntityAddChild(entity_who_picked, limb_attacker)
+				end
+				
+				EntityAddComponent(entity_who_picked, "LuaComponent", {
+					script_source_file = path_lukki_update,
+					execute_every_n_frame = "1",
+				})
+			end
 		end
 	end
 end
