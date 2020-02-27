@@ -1,11 +1,6 @@
 <Mod
 	name="Lukki - Spiderwalk 1.3.5"
-	description="Perk: Lukki Mutation disables flying, and replaces it with fast spiderwalk.
-
-By popular demand, I have added an option to re-enable the vanilla attacking limb.
-To enable it you must modify the out-of-game config file located here:
-
-.../Steam/steamapps/workshop/content/881100/1984503415/files/config.lua"
+	description="Perk: Lukki Mutation disables flying, and replaces it with fast spiderwalk."
 	request_no_api_restrictions="0"
 >
 </Mod>
