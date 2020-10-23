@@ -20,6 +20,20 @@ local chardata = player.CharacterDataComponent
 local platforming = player.CharacterPlatformingComponent
 local limbs = {attached = 0}
 
+--- remove air_whoosh ---
+
+local audio_loop_components = EntityGetComponent(player_entity, "AudioLoopComponent")
+
+for _, component in ipairs(audio_loop_components) do
+	local event_name = ComponentGetValue2(component, "event_name")
+	
+	if event_name == "player/air_whoosh" then
+		ComponentSetValue2(component, "volume_autofade_speed", 999)
+	end
+end
+
+-------------------------
+
 platforming.jump_velocity_y = 0
 platforming.jump_velocity_x = 0
 
